@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
+    <title>Library</title>
+  </head>
+  <body>
+    <div class="content">
+      <header>
+        <button id="open-modal"><strong>New Book</strong></button>
+      </header>
+
+      <section class="bookshell"></section>
+
+      <section class="modal">
+        <form action="">
+          <div class="modal-inputs">
+            <label for="title"><strong>Title:</strong></label>
+            <input required type="text" name="" id="title" />
+            <label for="author"><strong>Author:</strong></label>
+            <input required type="text" name="" id="author" />
+            <label for="pages"><strong>Pages:</strong></label>
+            <input required type="number" name="" id="pages" />
+            <label for="IsRead"><strong>Readed ?</strong></label>
+            <input type="checkbox" name="read" id="IsRead" />
+          </div>
+          <button type="submit">Add</button>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>

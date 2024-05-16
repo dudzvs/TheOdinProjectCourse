@@ -1,0 +1,177 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+.hidden {
+  display: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 25px;
+}
+
+header {
+  align-items: center;
+  align-self: center;
+  padding: 25px;
+}
+
+header button {
+  padding: 30px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(128, 128, 128);
+}
+
+header button:hover {
+  transform: scale(1.1);
+}
+
+header button:active {
+  transform: scale(1);
+}
+
+.bookshell {
+  margin-top: 3em;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-content: start;
+  place-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 1em;
+}
+
+.book {
+  text-align: left;
+  position: relative;
+  font-size: 1.4rem;
+  background-color: aliceblue;
+  padding: 50px;
+  border-radius: 10px;
+  min-height: 300px;
+  min-width: 400px;
+  box-shadow: 0px 10px 14px 0px rgba(0, 0, 0, 0.75);
+}
+
+.book h3 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.book button {
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: gray;
+}
+
+.remove-book {
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  padding: 2px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.read {
+  background-color: green !important;
+}
+
+.modal {
+  position: absolute;
+  color: white;
+  align-content: center;
+  border-radius: 10px;
+  z-index: 9999;
+  margin: 12em auto;
+  background-color: rgba(0, 0, 0, 0.719);
+  width: 500px;
+  height: 500px;
+  inset: 0;
+  box-shadow: 0px 10px 14px 0px rgba(0, 0, 0, 0.75);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.modal-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+form input:not(:last-child) {
+  border: none;
+  outline: none;
+  margin-top: 0.8em;
+  width: 100%;
+  padding-left: 5px;
+  background-color: transparent;
+  color: white;
+  border-bottom: 1px solid white;
+  font-size: 1.1rem;
+}
+
+form button {
+  border-radius: 10px;
+  margin-top: 1em;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+input:last-child {
+  width: 2em;
+  height: 2em;
+}
+
+label {
+  margin-top: 1em;
+}

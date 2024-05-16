@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>TicTacToe</title>
+  </head>
+  <body>
+    <div class="content">
+      <h1 style="margin-bottom: 50px">Player 1 turn</h1>
+      <div class="board x" id="board">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+      </div>
+
+      <div class="modal-endgame hidden" id="winningModal">
+        <h4>X's wins!!</h4>
+        <button>Restart</button>
+      </div>
+    </div>
+  </body>
+</html>

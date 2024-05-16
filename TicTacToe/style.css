@@ -1,0 +1,165 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cel-size: 150px;
+  --mark-size: calc(var(--cel-size) * 0.9);
+}
+
+body {
+  background-color: #f4f4f4;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  justify-content: center;
+  align-items: center;
+}
+
+.board {
+  width: 450px;
+  height: 450px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cell {
+  width: var(--cel-size);
+  height: var(--cel-size);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none;
+}
+
+.cell:nth-child(3n + 1) {
+  border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.cell.o,
+.cell.x {
+  cursor: not-allowed;
+}
+
+.cell.x::before,
+.cell.x::after,
+.cell.o::before,
+.cell.o::after {
+  background-color: black;
+}
+
+.board.x .cell:not(.o):not(.x):hover::before,
+.board.x .cell:not(.o):not(.x):hover::after,
+.board.o .cell:not(.o):not(.x):hover::after,
+.board.o .cell:not(.o):not(.x):hover::before {
+  background-color: lightgray;
+}
+
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.o):not(.x):hover::before,
+.board.x .cell:not(.o):not(.x):hover::after {
+  content: "";
+  position: absolute;
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+}
+
+.cell.x::before,
+.board.x .cell:not(.o):not(.x):hover::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after,
+.board.x .cell:hover:not(.o):not(.x)::after {
+  transform: rotate(-45deg);
+}
+
+.cell.o::before,
+.cell.o::after,
+.board.o .cell:not(.o):not(.x):hover::before,
+.board.o .cell:not(.o):not(.x):hover::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cell.o::before,
+.board.o .cell:not(.o):not(.x):hover::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+}
+
+.cell.o::after,
+.board.o .cell:not(.o):not(.x):hover::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: white;
+}
+
+.modal-endgame {
+  inset: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.733);
+  display: inherit;
+  flex-direction: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  gap: 0.2em;
+  font-size: 4.5rem;
+  color: white;
+}
+
+.modal-endgame button {
+  padding: 0.4em;
+  border: none;
+  border-radius: 5px;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.modal-playerChoose {
+  display: flex;
+  justify-content: center;
+  padding: 2em;
+  align-items: center;
+  width: 400px;
+  height: 200px;
+  background-color: rgb(1, 17, 31);
+  color: white;
+  border-radius: 12px;
+}
+
+input {
+  appearance: none;
+}
+
+.hidden {
+  display: none;
+}
