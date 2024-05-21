@@ -6,8 +6,18 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-    clear: true,
+    clean: true,
   },
+
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
