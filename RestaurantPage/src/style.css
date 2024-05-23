@@ -1,0 +1,65 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #314c53;
+  --header-color: #01030071;
+  --font-color: #f7f8fc;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.6;
+}
+
+body {
+  font-size: 1.6rem;
+  color: var(--font-color);
+  background-color: var(--bg-color);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
+}
+
+header {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--header-color);
+}
+
+header h1 {
+  font-size: 12rem;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+nav button {
+  border: none;
+  background-color: transparent;
+  color: var(--font-color);
+  border-bottom: 2.5px solid black;
+  padding: 1em 2.5em;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+nav button:hover {
+  border-color: #f7f8fc;
+}
