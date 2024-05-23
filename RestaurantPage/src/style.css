@@ -8,7 +8,7 @@
 
 :root {
   --bg-color: #314c53;
-  --header-color: #01030071;
+  --header-color: #01030042;
   --font-color: #f7f8fc;
 }
 
@@ -27,7 +27,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   height: 100vh;
   width: 100vw;
 }
@@ -62,4 +61,55 @@ nav button {
 
 nav button:hover {
   border-color: #f7f8fc;
+}
+
+nav button.active {
+  border-color: #f7f8fc;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-image: url(./asset/bg-main.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about {
+  margin-top: 2.5em;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  gap: 0.5em;
+  padding: 3.5em 6em;
+  background-color: var(--bg-color);
+  font-size: 1.9rem;
+  border-radius: 15px;
+}
+
+.about h4 {
+  font-size: 3rem;
+}
+
+.about p {
+  font-style: italic;
+}
+
+.about p:last-child {
+  border-bottom: 2px solid var(--font-color);
+}
+
+.home-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-image: url(./asset/home-img.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 1em;
 }
