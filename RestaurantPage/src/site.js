@@ -15,6 +15,10 @@ function createNav() {
   const homeBtn = document.createElement('button');
   homeBtn.classList.add('btn-nav');
   homeBtn.textContent = 'Home';
+  homeBtn.addEventListener('click', (e) => {
+    if (e.target.classList.contains('active')) return;
+    setActiveBtn(homeBtn);
+  });
 
   const menuBtn = document.createElement('button');
   menuBtn.classList.add('btn-nav');
@@ -29,6 +33,18 @@ function createNav() {
   nav.appendChild(contactBtn);
 
   return nav;
+}
+
+function setActiveBtn(button) {
+  const buttons = document.querySelectorAll('.btn-nav');
+
+  buttons.forEach((btn) => {
+    if (btn !== button) {
+      btn.classList.remove('active');
+    }
+  });
+
+  button.classList.add('active');
 }
 
 function initializeSite() {
