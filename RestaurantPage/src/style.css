@@ -113,3 +113,52 @@ main {
   background-size: cover;
   margin-bottom: 1em;
 }
+
+.menu {
+  display: grid;
+  margin-top: 1em;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1em;
+  width: 90%;
+  height: 95%;
+  padding: 1em;
+  background-color: var(--header-color);
+}
+
+.menu-img {
+  position: relative;
+  background-image: url(./asset/menuimg1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 25px;
+  width: 270px;
+  height: 270px;
+}
+
+.menu-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.685);
+  border-radius: 25px;
+}
+
+.menu h3 {
+  color: var(--font-color);
+  background-color: rgba(0, 0, 0, 0.349);
+  border-radius: 25px;
+  font-size: 2.9rem;
+  position: absolute;
+  inset: 0;
+}
+
+.menu p {
+  font-size: 4rem;
+}
+
+.hidden {
+  display: none;
+}
