@@ -1,3 +1,5 @@
+import loadHome from './home';
+
 function createHeader() {
   const header = document.createElement('header');
   const restaurantName = document.createElement('h1');
@@ -18,6 +20,7 @@ function createNav() {
   homeBtn.addEventListener('click', (e) => {
     if (e.target.classList.contains('active')) return;
     setActiveBtn(homeBtn);
+    loadHome();
   });
 
   const menuBtn = document.createElement('button');
@@ -33,6 +36,12 @@ function createNav() {
   nav.appendChild(contactBtn);
 
   return nav;
+}
+
+function createMain() {
+  const main = document.createElement('main');
+
+  return main;
 }
 
 function setActiveBtn(button) {
@@ -51,6 +60,7 @@ function initializeSite() {
   const content = document.getElementById('content');
 
   content.appendChild(createHeader());
+  content.appendChild(createMain());
 }
 
 export default initializeSite;
