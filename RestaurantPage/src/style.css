@@ -116,26 +116,24 @@ main {
 
 .menu {
   display: grid;
-  margin-top: 1em;
   place-items: center;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 1em;
-  width: 90%;
-  height: 95%;
-  padding: 1em;
+  width: 100%;
+  height: 100%;
+  padding: 2em;
   background-color: var(--header-color);
 }
 
 .menu-img {
   position: relative;
-  background-image: url(./asset/menuimg1.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 25px;
-  width: 270px;
-  height: 270px;
+  min-width: 270px;
+  min-height: 270px;
 }
 
 .menu-content {
@@ -157,6 +155,7 @@ main {
 
 .menu p {
   font-size: 4rem;
+  padding: 0.1em;
 }
 
 .contact {

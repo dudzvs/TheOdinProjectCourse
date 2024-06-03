@@ -1,4 +1,5 @@
 import loadHome from './home';
+import loadMenu from './menu';
 
 function createHeader() {
   const header = document.createElement('header');
@@ -26,6 +27,11 @@ function createNav() {
   const menuBtn = document.createElement('button');
   menuBtn.classList.add('btn-nav');
   menuBtn.textContent = 'Menu';
+  menuBtn.addEventListener('click', (e) => {
+    if (e.target.classList.contains('active')) return;
+    setActiveBtn(menuBtn);
+    loadMenu();
+  });
 
   const contactBtn = document.createElement('button');
   contactBtn.classList.add('btn-nav');
@@ -61,6 +67,9 @@ function initializeSite() {
 
   content.appendChild(createHeader());
   content.appendChild(createMain());
+
+  loadHome();
+  setActiveBtn(document.querySelector('.btn-nav'));
 }
 
 export default initializeSite;
