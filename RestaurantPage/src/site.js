@@ -1,3 +1,4 @@
+import loadContact from './contact';
 import loadHome from './home';
 import loadMenu from './menu';
 
@@ -36,6 +37,11 @@ function createNav() {
   const contactBtn = document.createElement('button');
   contactBtn.classList.add('btn-nav');
   contactBtn.textContent = 'Contact';
+  contactBtn.addEventListener('click', (e) => {
+    if (e.target.classList.contains('active')) return;
+    setActiveBtn(contactBtn);
+    loadContact();
+  });
 
   nav.appendChild(homeBtn);
   nav.appendChild(menuBtn);
