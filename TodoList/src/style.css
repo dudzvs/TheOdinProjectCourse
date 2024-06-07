@@ -16,26 +16,29 @@
 }
 
 html[data-mode='Light'] {
-  --bg-header-desktop-light: url('./assets/bg-mobile-light.jpg');
-  --img-switcher-light: url('./assets/icon-moon.svg');
-  --bg-page-light: #f2f2f2;
+  --bg-header-desktop: url('./assets/bg-mobile-light.jpg');
+  --img-switcher: url('./assets/icon-moon.svg');
+  --bg-page: #f2f2f2;
+  --bg-tasks: #ffffff;
 }
 
 body {
   font-family: 'Josefin Sans';
   font-size: 1.2rem;
-  background-color: var(--bg-page-light);
+  background-color: var(--bg-page);
 }
 
 .content {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 header {
   display: flex;
+  width: 100%;
   justify-content: space-between;
-  background-image: var(--bg-header-desktop-light);
+  background-image: var(--bg-header-desktop);
   background-size: cover;
   font-size: 2.2rem;
   letter-spacing: 1.5rem;
@@ -49,7 +52,7 @@ header input {
 }
 
 label {
-  background-image: var(--img-switcher-light);
+  background-image: var(--img-switcher);
   display: block;
   width: 25px;
   height: 25px;
@@ -58,12 +61,17 @@ label {
 
 main {
   display: flex;
+  width: 100%;
+  justify-self: center;
+  max-width: 600px;
+  flex-direction: column;
   justify-content: center;
   margin-top: -10em;
-  padding: 2em;
+  padding: 2em 1.5em;
 }
 
 main input {
+  justify-self: center;
   width: 100%;
   min-width: 327px;
   height: 48px;
@@ -71,4 +79,39 @@ main input {
   outline: none;
   border-radius: 5px;
   padding: 0 3em;
+}
+
+.new-task-box {
+  width: 100%;
+}
+
+form {
+  position: relative;
+}
+
+form div {
+  position: absolute;
+  border: 1px solid gray;
+  border-radius: 50%;
+  left: 10px;
+  top: 13px;
+  width: 22px;
+  height: 22px;
+}
+
+form div:hover {
+  background: url('./assets/icon-check.svg'),
+    linear-gradient(to right, #55ddff, #c058f3);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.tasks {
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 1.5em;
+  padding: 1em;
+  min-height: 368px;
+  background-color: var(--bg-tasks);
 }
