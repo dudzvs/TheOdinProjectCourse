@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-mode="Light">
+<html lang="en" data-mode="Dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,9 +30,36 @@
             />
           </form>
         </div>
+        <div class="tasks">
+          <li class="task">
+            <input type="checkbox" name="todo-check" class="todo-check" />
+            <label>Complete online JavaScript course</label>
+            <button class="delete"></button>
+          </li>
+          <li class="task">
+            <input type="checkbox" name="todo-check" class="todo-check" />
+            <label>Complete online JavaScript course</label>
+            <button class="delete"></button>
+          </li>
+          <li class="task">
+            <input type="checkbox" name="todo-check" class="todo-check" />
+            <label>Complete online JavaScript course</label>
+            <button class="delete"></button>
+          </li>
 
-        <div class="tasks"></div>
+          <div class="taskOptions">
+            <div class="task-count">5 items left</div>
+            <div class="clear-all" id="clearAll">Clear Completed</div>
+          </div>
+        </div>
+        <div class="filters">
+          <a href="#">All</a>
+          <a href="#">Active</a>
+          <a href="#">Completed</a>
+        </div>
       </main>
+
+      <h4>Drag and drop to reorder list</h4>
     </div>
   </body>
 </html>
