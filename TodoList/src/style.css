@@ -244,4 +244,8 @@ h4 {
     gap: 16em;
     background-image: var(--bg-header-desktop);
   }
+
+  .filters {
+    margin-top: 0em;
+  }
 }
