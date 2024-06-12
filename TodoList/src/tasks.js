@@ -1,4 +1,5 @@
 import { createTaskElement } from './DOM.js';
+import { getFromLocalStorage, savetoLocalStorage } from './localStorage.js';
 
 class Task {
   constructor(text, id, isCompleted = false) {
@@ -16,6 +17,18 @@ export function createNewTask(taskText) {
 
   tasks.push(newTask);
   const taskElement = createTaskElement(newTask);
+  savetoLocalStorage('tasks', JSON.stringify(tasks));
 
   return taskElement;
+}
+
+export function loadTasksFromLocalStorage() {
+  const savedTasks = JSON.parse(getFromLocalStorage('tasks')) || [];
+
+  savedTasks.forEach((task) => {
+    const taskElement = createTaskElement(task);
+    document.querySelector('.tasks').appendChild(taskElement);
+  });
+
+  tasks = savedTasks;
 }
