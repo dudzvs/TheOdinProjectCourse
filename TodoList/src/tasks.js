@@ -22,6 +22,11 @@ export function createNewTask(taskText) {
   return taskElement;
 }
 
+export function deleteTask(taskId) {
+  tasks = tasks.filter((task) => task.id !== taskId);
+  savetoLocalStorage('tasks', JSON.stringify(tasks));
+}
+
 export function loadTasksFromLocalStorage() {
   const savedTasks = JSON.parse(getFromLocalStorage('tasks')) || [];
 
