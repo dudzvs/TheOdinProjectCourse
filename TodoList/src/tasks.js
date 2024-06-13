@@ -1,4 +1,8 @@
-import { createTaskElement } from './DOM.js';
+import {
+  createTaskElement,
+  removeCompletedTasks,
+  updateTaskCount,
+} from './DOM.js';
 import { getFromLocalStorage, savetoLocalStorage } from './localStorage.js';
 
 class Task {
@@ -18,6 +22,7 @@ export function createNewTask(taskText) {
   tasks.push(newTask);
   const taskElement = createTaskElement(newTask);
   savetoLocalStorage('tasks', JSON.stringify(tasks));
+  updateTaskCount(tasks);
 
   return taskElement;
 }
@@ -25,6 +30,7 @@ export function createNewTask(taskText) {
 export function deleteTask(taskId) {
   tasks = tasks.filter((task) => task.id !== taskId);
   savetoLocalStorage('tasks', JSON.stringify(tasks));
+  updateTaskCount(tasks);
 }
 
 export function filterTasks(filter) {
@@ -43,16 +49,31 @@ export function filterTasks(filter) {
     const taskElement = createTaskElement(task);
     tasksBox.appendChild(taskElement);
   });
+  updateTaskCount(tasks);
+}
+
+export function clearCompletedTasks() {
+  const tasksBox = document.querySelector('.tasks');
+  tasksBox.innerHTML = '';
+  tasks = tasks.filter((task) => !task.isCompleted);
+  savetoLocalStorage('tasks', JSON.stringify(tasks));
+  removeCompletedTasks(tasks);
+  updateTaskCount(tasks);
+
+  tasks.forEach((task) => {
+    const taskElement = createTaskElement(task);
+    tasksBox.appendChild(taskElement);
+  });
 }
 
 export function toggleTaskCompletion(taskId) {
-  const taskIndex = tasks.findIndex((task) => task.id === taskId);
+  const task = tasks.find((task) => task.id === taskId);
 
-  if (taskIndex !== -1) {
-    tasks[taskIndex].isCompleted = !tasks[taskIndex].isCompleted;
+  if (task) {
+    task.isCompleted = !task.isCompleted;
+    savetoLocalStorage('tasks', JSON.stringify(tasks));
+    updateTaskCount(tasks);
   }
-
-  savetoLocalStorage('tasks', JSON.stringify(tasks));
 }
 
 export function loadTasksFromLocalStorage() {
@@ -64,4 +85,5 @@ export function loadTasksFromLocalStorage() {
   });
 
   tasks = savedTasks;
+  updateTaskCount(tasks);
 }

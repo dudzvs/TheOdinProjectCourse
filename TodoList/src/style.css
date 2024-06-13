@@ -181,17 +181,13 @@ form div:hover,
   cursor: pointer;
 }
 
-.taskOptions {
-  font-weight: bold;
-  color: var(--font-filter-color);
-  padding: 1em;
-}
-
 .task-count,
 .clear-all {
   position: absolute;
   bottom: 10px;
+  font-weight: bold;
   cursor: pointer;
+  color: var(--font-filter-color);
 }
 
 .task-count:hover,
@@ -199,8 +195,11 @@ form div:hover,
   color: var(--font-color-task);
 }
 
+.task-count {
+  left: 10px;
+}
+
 .clear-all {
-  position: absolute;
   right: 10px;
 }
 

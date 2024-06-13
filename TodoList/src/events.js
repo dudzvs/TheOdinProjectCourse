@@ -3,6 +3,7 @@ import {
   deleteTask,
   filterTasks,
   toggleTaskCompletion,
+  clearCompletedTasks,
 } from './tasks.js';
 
 export function addTask() {
@@ -26,6 +27,8 @@ export function addTaskEventListeners() {
       const taskId = parseInt(taskElement.dataset.id, 10);
       deleteTask(taskId);
       taskElement.remove();
+    } else if (e.target.classList.contains('clear-all')) {
+      clearCompletedTasks();
     }
   });
 
