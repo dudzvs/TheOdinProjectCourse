@@ -1,4 +1,9 @@
-import { createNewTask, deleteTask, toggleTaskCompletion } from './tasks.js';
+import {
+  createNewTask,
+  deleteTask,
+  filterTasks,
+  toggleTaskCompletion,
+} from './tasks.js';
 
 export function addTask() {
   const form = document.querySelector('form');
@@ -13,6 +18,7 @@ export function addTask() {
 
 export function addTaskEventListeners() {
   const taskList = document.querySelector('.tasks');
+  const filterBtns = document.querySelectorAll('a');
 
   taskList.addEventListener('click', (e) => {
     if (e.target.classList.contains('delete')) {
@@ -29,5 +35,16 @@ export function addTaskEventListeners() {
       const taskId = parseInt(taskElement.dataset.id, 10);
       toggleTaskCompletion(taskId);
     }
+  });
+
+  filterBtns.forEach((filter) => {
+    filter.addEventListener('click', (e) => {
+      e.preventDefault();
+      const filter = e.target.getAttribute('href').substring(1);
+      filterBtns.forEach((btn) => btn.classList.remove('active'));
+
+      e.target.classList.add('active');
+      filterTasks(filter);
+    });
   });
 }
