@@ -1,4 +1,4 @@
-export function createTaskElement({ text: taskText, id: taskId }) {
+export function createTaskElement({ text: taskText, id: taskId, isCompleted }) {
   const main = document.querySelector('main');
   let tasksBox = document.querySelector('.tasks');
   if (!tasksBox) {
@@ -13,6 +13,7 @@ export function createTaskElement({ text: taskText, id: taskId }) {
   const taskCheck = document.createElement('input');
   taskCheck.setAttribute('type', 'checkbox');
   taskCheck.classList.add('todo-check');
+  taskCheck.checked = isCompleted;
 
   const taskLabel = document.createElement('label');
   taskLabel.textContent = taskText;

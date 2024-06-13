@@ -22,4 +22,12 @@ export function addTaskEventListeners() {
       taskElement.remove();
     }
   });
+
+  taskList.addEventListener('change', (e) => {
+    if (e.target.classList.contains('todo-check')) {
+      const taskElement = e.target.closest('.task');
+      const taskId = parseInt(taskElement.dataset.id, 10);
+      toggleTaskCompletion(taskId);
+    }
+  });
 }

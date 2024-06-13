@@ -26,6 +26,16 @@ export function deleteTask(taskId) {
   tasks = tasks.filter((task) => task.id !== taskId);
   savetoLocalStorage('tasks', JSON.stringify(tasks));
 }
+// SALVAR O ESTADO DE CHECKED DO INPUT *****>>>>
+export function toggleTaskCompletion(taskId) {
+  const taskIndex = tasks.findIndex((task) => task.id === taskId);
+
+  if (taskIndex !== -1) {
+    tasks[taskIndex].isCompleted = !tasks[taskIndex].isCompleted;
+  }
+
+  savetoLocalStorage('tasks', JSON.stringify(tasks));
+}
 
 export function loadTasksFromLocalStorage() {
   const savedTasks = JSON.parse(getFromLocalStorage('tasks')) || [];
