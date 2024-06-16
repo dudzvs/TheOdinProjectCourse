@@ -1,3 +1,4 @@
+import { handleDragEnd, handleDragOver, handleDragStart } from './DOM.js';
 import {
   createNewTask,
   deleteTask,
@@ -20,6 +21,7 @@ export function addTask() {
 export function addTaskEventListeners() {
   const taskList = document.querySelector('.tasks');
   const filterBtns = document.querySelectorAll('a');
+  const taskElements = document.querySelectorAll('.task');
 
   taskList.addEventListener('click', (e) => {
     if (e.target.classList.contains('delete')) {
@@ -50,4 +52,11 @@ export function addTaskEventListeners() {
       filterTasks(filter);
     });
   });
+
+  taskElements.forEach((task) => {
+    task.addEventListener('dragstart', handleDragStart);
+    task.addEventListener('dragend', handleDragEnd);
+  });
+
+  taskList.addEventListener('dragover', (e) => handleDragOver(e, taskList));
 }

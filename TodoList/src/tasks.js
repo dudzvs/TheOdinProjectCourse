@@ -35,7 +35,7 @@ export function deleteTask(taskId) {
 
 export function filterTasks(filter) {
   const tasksBox = document.querySelector('.tasks');
-  tasksBox.innerHTML = ''; // Limpa a lista atual de tarefas
+  tasksBox.innerHTML = '';
 
   let filteredTasks = tasks;
 
@@ -86,4 +86,16 @@ export function loadTasksFromLocalStorage() {
 
   tasks = savedTasks;
   updateTaskCount(tasks);
+}
+
+export function saveTaskOrder() {
+  const tasksBox = document.querySelector('.tasks');
+  const taskElements = tasksBox.querySelectorAll('.task');
+  const newOrder = Array.from(taskElements).map((taskElement) => {
+    const taskId = parseInt(taskElement.getAttribute('data-id'), 10);
+    return tasks.find((task) => task.id === taskId);
+  });
+
+  tasks = newOrder;
+  savetoLocalStorage('tasks', JSON.stringify(tasks));
 }
