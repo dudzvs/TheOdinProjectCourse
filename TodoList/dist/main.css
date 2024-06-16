@@ -1,0 +1,257 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url(613585db06f849ca7717.ttf);
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+html[data-mode='Light'] {
+  --bg-header-mobile: url(645bd127083ef66fbfb9.jpg);
+  --bg-header-desktop: url(3508d620efd5a52bb4ce.jpg);
+  --img-switcher: url(6c03114b495d05f4380b.svg);
+  --bg-page: #f2f2f2;
+  --bg-tasks: #ffffff;
+  --font-color-newTasks: #393a4b;
+  --font-color-task: #494c6b;
+  --border-color: #e3e4f1;
+  --font-filter-color: #9495a5;
+}
+
+html[data-mode='Dark'] {
+  --bg-header-mobile: url(4b4de43949f46052a146.jpg);
+  --bg-header-desktop: url(73e47dbb723ebc772ef0.jpg);
+  --img-switcher: url(910b1f9a23741afc341e.svg);
+  --bg-page: #171823;
+  --bg-tasks: #25273d;
+  --font-color-newTasks: #c8cbe7;
+  --font-color-task: #c8cbe7;
+  --border-color: #393a4b;
+  --font-filter-color: #5b5e7e;
+}
+
+body {
+  font-family: 'Josefin Sans';
+  font-size: 1.2rem;
+  background-color: var(--bg-page);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-image: var(--bg-header-mobile);
+  background-size: cover;
+  font-size: 2.2rem;
+  letter-spacing: 1.5rem;
+  color: white;
+  min-height: 220px;
+  padding: 2em 1em;
+}
+
+header input {
+  appearance: none;
+}
+
+header label {
+  background-image: var(--img-switcher);
+  display: block;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  justify-self: center;
+  max-width: 600px;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -10em;
+  padding: 2em 1.5em;
+}
+
+main #newTaskInput {
+  justify-self: center;
+  width: 100%;
+  font-family: 'Josefin Sans';
+  font-size: 1.5rem;
+  color: var(--font-color-newTasks);
+  min-width: 327px;
+  height: 48px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 0 3em;
+  background-color: var(--bg-tasks);
+}
+
+.new-task-box {
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  position: relative;
+}
+
+form div,
+.task input {
+  position: absolute;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  left: 10px;
+  top: 12px;
+  width: 23px;
+  height: 23px;
+  cursor: pointer;
+}
+
+form div:hover,
+.task input:hover,
+.task input:checked {
+  background: url(a8fb15d0278c8e312df5.svg),
+    linear-gradient(to right, #55ddff, #c058f3);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.tasks {
+  width: 100%;
+  position: relative;
+  border-radius: 5px;
+  margin-top: 1.5em;
+  min-height: 368px;
+  background-color: var(--bg-tasks);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.task {
+  position: relative;
+  list-style: none;
+  padding: 2em 1em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.task input {
+  appearance: none;
+  margin-left: 0.5em;
+  top: 20px;
+}
+
+.task label {
+  font-size: 1.5rem;
+  color: var(--font-color-task);
+  margin-left: 2.5em;
+  cursor: pointer;
+}
+
+.task input:checked + label {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.delete {
+  padding: 1em;
+  background-image: url(6ee81d30b75cab19d6f7.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  right: 12px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.task-count,
+.clear-all {
+  position: absolute;
+  bottom: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--font-filter-color);
+}
+
+.task-count:hover,
+.clear-all:hover {
+  color: var(--font-color-task);
+}
+
+.task-count {
+  left: 10px;
+}
+
+.clear-all {
+  right: 10px;
+}
+
+.filters {
+  width: 100%;
+  margin-top: 1em;
+  padding: 1.5em;
+  background-color: var(--bg-tasks);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  align-items: center;
+}
+
+.filters a {
+  color: var(--font-filter-color);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filters a.active {
+  color: #3a7cfd;
+}
+
+.filters a:hover {
+  color: #3a7cfd;
+}
+
+h4 {
+  color: var(--font-filter-color);
+  font-size: 1.4rem;
+}
+
+.task.dragging {
+  opacity: 0.5;
+}
+
+@media (min-width: 728px) {
+  header {
+    justify-content: center;
+    gap: 16em;
+    background-image: var(--bg-header-desktop);
+  }
+
+  .filters {
+    margin-top: 0em;
+  }
+}
+
+
+/*# sourceMappingURL=main.css.map*/
