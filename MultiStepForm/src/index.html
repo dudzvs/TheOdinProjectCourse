@@ -6,5 +6,59 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>MultiStepForm</title>
   </head>
-  <body></body>
+  <body>
+    <div class="content">
+      <header>
+        <nav>
+          <div class="nav-btns-pages">
+            <button class="nav-btn active" data-nav-button>1</button>
+            <button class="nav-btn" data-nav-button>2</button>
+            <button class="nav-btn" data-nav-button>3</button>
+            <button class="nav-btn" data-nav-button>4</button>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <div class="formBox personal-info">
+          <h2 id="titleForm">Personal Info</h2>
+          <p id="descriptForm">
+            Please provide your name, email address, and phone number.
+          </p>
+          <form action="#" class="formPersonal">
+            <div class="input-wrapper">
+              <label for="userName">Name</label>
+              <input
+                type="text"
+                name="userName"
+                id="userName"
+                required
+                placeholder="e.g Stephen Robs"
+              />
+            </div>
+            <div class="input-wrapper">
+              <label for="userEmail">Email Adress</label>
+              <input
+                type="text"
+                name="email"
+                id="userEmail"
+                required
+                placeholder=" e.g stephenrobs@mail.com"
+              />
+            </div>
+            <div class="input-wrapper">
+              <label for="userPhone">Phone Number</label>
+              <input
+                type="number"
+                name="userPhone"
+                id="userPhone"
+                required
+                placeholder="e.g. +1 234 567 890"
+              />
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>

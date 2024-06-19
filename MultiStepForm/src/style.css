@@ -1,3 +1,145 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --bg-img-header: url('./assets/images/bg-sidebar-mobile.svg');
+  --bg-color-page: hsl(206, 94%, 87%);
+  --bg-color-nav-btns: hsl(206, 94%, 87%);
+  --primary-color: hsl(213, 96%, 18%);
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./assets/fonts/Ubuntu-Regular.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu Medium';
+  src: url('./assets/fonts/Ubuntu-Medium.ttf') format('ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Ubuntu Bold';
+  src: url('./assets/fonts/Ubuntu-Bold.ttf') format('ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
-  background-color: blue;
+  background-color: var(--bg-color-page);
+  font-family: 'Ubuntu';
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  height: 25vh;
+  margin-bottom: 2em;
+  background-image: var(--bg-img-header);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+nav {
+  margin-top: 8em;
+}
+
+.nav-btn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid white;
+  color: white;
+  border-radius: 50%;
+  font-family: 'Ubuntu Bold';
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.nav-btn:not(:first-child) {
+  margin-left: 1em;
+}
+
+.nav-btn.active {
+  color: black;
+  border: none;
+  background-color: var(--bg-color-nav-btns);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: grey;
+}
+
+.formBox {
+  margin-top: -4.5em;
+  padding: 32px 22px;
+  width: 90vw;
+  max-width: 100%;
+  border-radius: 10px;
+  background-color: white;
+}
+
+h2 {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 2.4rem;
+  margin-bottom: 9px;
+}
+
+p {
+  margin-bottom: 22px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.input-wrapper:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+input {
+  padding-left: 0.5em;
+}
+
+label {
+  color: var(--primary-color);
+}
+
+.formPersonal input {
+  height: 41px;
+  border: 1px solid #d6d9e6;
+  border-radius: 4px;
+}
+
+.hidden {
+  display: none;
 }
