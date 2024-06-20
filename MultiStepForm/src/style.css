@@ -13,6 +13,7 @@
   --bg-color-page: hsl(206, 94%, 87%);
   --bg-color-nav-btns: hsl(206, 94%, 87%);
   --primary-color: hsl(213, 96%, 18%);
+  --border-color: #d6d9e6;
 }
 
 @font-face {
@@ -43,12 +44,13 @@ body {
 .content {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 header {
   display: flex;
   justify-content: center;
-  height: 25vh;
+  height: 28vh;
   margin-bottom: 2em;
   background-image: var(--bg-img-header);
   background-repeat: no-repeat;
@@ -57,7 +59,7 @@ header {
 }
 
 nav {
-  margin-top: 8em;
+  margin-top: 7em;
 }
 
 .nav-btn {
@@ -91,53 +93,25 @@ main {
 }
 
 .formBox {
-  margin-top: -4.5em;
+  margin-top: -6.5em;
   padding: 32px 22px;
   width: 90vw;
   max-width: 100%;
   border-radius: 10px;
   background-color: white;
+  box-shadow: -1px 6px 7px -6px rgba(0, 0, 0, 0.51);
 }
 
 h2 {
   color: var(--primary-color);
   font-weight: bold;
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   margin-bottom: 9px;
 }
 
-p {
+.descript {
+  max-width: 250px;
   margin-bottom: 22px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  padding: 0 5px;
-}
-
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5em;
-}
-
-.input-wrapper:not(:last-child) {
-  margin-bottom: 1em;
-}
-
-input {
-  padding-left: 0.5em;
-}
-
-label {
-  color: var(--primary-color);
-}
-
-.formPersonal input {
-  height: 41px;
-  border: 1px solid #d6d9e6;
-  border-radius: 4px;
 }
 
 .hidden {
