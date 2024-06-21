@@ -11,20 +11,92 @@
       <header>
         <nav>
           <div class="nav-btns-pages">
-            <button class="nav-btn" data-nav-button>1</button>
+            <button class="nav-btn active" data-nav-button>1</button>
             <button class="nav-btn" data-nav-button>2</button>
-            <button class="nav-btn active" data-nav-button>3</button>
+            <button class="nav-btn" data-nav-button>3</button>
             <button class="nav-btn" data-nav-button>4</button>
           </div>
         </nav>
       </header>
 
       <main>
-        <div class="formBox personal-info">
-          <h2 id="titleForm">Pick add-ons</h2>
+        <div class="formBox">
+          <h2 id="titleForm">Select your plan</h2>
           <p id="descriptForm" class="descript">
-            Add-ons help enhance your gaming experience.
+            You have the option of monthly or yearly billing.
           </p>
+
+          <form action="#">
+            <div class="personal-info hidden">
+              <div class="input-wrapper">
+                <label for="userName">Name</label>
+                <input
+                  type="text"
+                  name="userName"
+                  id="userName"
+                  required
+                  placeholder="e.g. Stephen King"
+                />
+              </div>
+              <div class="input-wrapper">
+                <label for="userEmail">Email</label>
+                <input
+                  type="text"
+                  name="userEmail"
+                  id="userEmail"
+                  required
+                  placeholder="e.g. stephenking@lorem.com"
+                />
+              </div>
+              <div class="input-wrapper">
+                <label for="phone">Phone</label>
+                <input
+                  type="number"
+                  name="phone"
+                  id="phone"
+                  required
+                  placeholder="e.g. +1 234 567 890"
+                />
+              </div>
+            </div>
+            <div class="plans">
+              <div class="input-wrapper">
+                <input type="radio" name="plansInput" id="arcade" checked />
+                <label for="arcade">
+                  <div class="icon arcade"></div>
+                  <div class="plan-detail">
+                    <span>Arcade</span>
+                    <span>$9/mo</span>
+                  </div>
+                </label>
+                <input type="radio" name="plansInput" id="advanced" />
+                <label for="advanced">
+                  <div class="icon advanced"></div>
+                  <div class="plan-detail">
+                    <span>Advanced</span>
+                    <span>$12/mo</span>
+                  </div>
+                </label>
+                <input type="radio" name="plansInput" id="pro" />
+                <label for="pro">
+                  <div class="icon pro"></div>
+                  <div class="plan-detail">
+                    <span>Pro</span>
+                    <span>$16/mo</span>
+                  </div>
+                </label>
+                <div class="switchBox">
+                  <label for="yearly">Monthly</label>
+                  <div class="switch">
+                    <input type="radio" name="billing" id="monthly" checked />
+                    <input type="radio" name="billing" id="yearly" />
+                    <div class="slider"></div>
+                  </div>
+                  <label for="monthly">Yearly</label>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </main>
     </div>

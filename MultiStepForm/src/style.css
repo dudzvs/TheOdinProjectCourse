@@ -1,3 +1,24 @@
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./assets/fonts/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu Medium';
+  src: url('./assets/fonts/Ubuntu-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu Bold';
+  src: url('./assets/fonts/Ubuntu-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 *,
 *::before,
 *::after {
@@ -13,27 +34,8 @@
   --bg-color-page: hsl(206, 94%, 87%);
   --bg-color-nav-btns: hsl(206, 94%, 87%);
   --primary-color: hsl(213, 96%, 18%);
+  --text-color: var(--text-color);
   --border-color: #d6d9e6;
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  src: url('./assets/fonts/Ubuntu-Regular.ttf') format('ttf');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Ubuntu Medium';
-  src: url('./assets/fonts/Ubuntu-Medium.ttf') format('ttf');
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Ubuntu Bold';
-  src: url('./assets/fonts/Ubuntu-Bold.ttf') format('ttf');
-  font-weight: 700;
-  font-style: normal;
 }
 
 body {
@@ -111,7 +113,141 @@ h2 {
 
 .descript {
   max-width: 250px;
+  color: var(--text-color);
+  font-size: 1.6rem;
   margin-bottom: 22px;
+}
+
+.personal-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+  gap: 1em;
+}
+
+.personal-info input {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  height: 40px;
+  padding: 0em 1em;
+  outline-color: blue;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  color: var(--primary-color);
+}
+
+.plans input {
+  appearance: none;
+}
+
+.plans label {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.plans input:checked + label {
+  border: 1px solid blue;
+}
+
+.plans .input-wrapper {
+  gap: 0.5em;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.icon.arcade {
+  background-image: url('./assets/images/icon-arcade.svg');
+}
+
+.icon.advanced {
+  background-image: url('./assets/images/icon-advanced.svg');
+}
+
+.icon.pro {
+  background-image: url('./assets/images/icon-pro.svg');
+}
+
+.plan-detail {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Ubuntu Medium';
+  margin-left: 1em;
+  gap: 0.3em;
+}
+
+.plan-detail span:first-child {
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.plan-detail span:nth-child(2) {
+  font-size: 1.5rem;
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  color: grey;
+}
+
+.switchBox {
+  width: 100%;
+  font-family: 'Ubuntu Medium';
+  color: grey;
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  align-items: center;
+  min-height: 50px;
+  background-color: #d6d9e652;
+  margin-top: 24px;
+  border-radius: 8px;
+}
+
+.switchBox label {
+  border: none;
+  cursor: pointer;
+}
+
+.switchBox #monthly:checked {
+  color: blue;
+}
+
+.switch {
+  position: relative;
+  padding: 0.2em;
+  border-radius: 10px;
+  min-width: 38px;
+  background-color: var(--primary-color);
+  height: 20px;
+}
+
+.switch .slider {
+  position: absolute;
+  top: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: white;
+  transition: transform 0.3s;
+  transform: translateX(0);
+}
+
+.switchBox #yearly:checked ~ .slider {
+  transform: translateX(0px);
+}
+
+.switchBox #monthly:checked ~ .slider {
+  transform: translateX(17px);
 }
 
 .hidden {
