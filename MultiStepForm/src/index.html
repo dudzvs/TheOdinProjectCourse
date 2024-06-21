@@ -21,13 +21,13 @@
 
       <main>
         <div class="formBox">
-          <h2 id="titleForm">Select your plan</h2>
+          <h2 id="titleForm">Finishing up</h2>
           <p id="descriptForm" class="descript">
-            You have the option of monthly or yearly billing.
+            Double-check everything looks OK before confirming.
           </p>
 
           <form action="#">
-            <div class="personal-info hidden">
+            <div class="personal-info">
               <div class="input-wrapper">
                 <label for="userName">Name</label>
                 <input
@@ -59,7 +59,7 @@
                 />
               </div>
             </div>
-            <div class="plans">
+            <div class="plans hidden">
               <div class="input-wrapper">
                 <input type="radio" name="plansInput" id="arcade" checked />
                 <label for="arcade">
@@ -94,6 +94,61 @@
                   </div>
                   <label for="monthly">Yearly</label>
                 </div>
+              </div>
+            </div>
+            <div class="modsPlans hidden">
+              <div class="input-wrapper">
+                <input type="checkbox" name="mods" id="onlineServices" />
+                <label for="onlineServices">
+                  <div class="plan-detail">
+                    <span>Online service</span>
+                    <span>Access to multiplayer games</span>
+                  </div>
+                  <span class="price">+$10/yr</span>
+                </label>
+              </div>
+              <div class="input-wrapper">
+                <input type="checkbox" name="mods" id="largerStorage" />
+                <label for="largerStorage">
+                  <div class="plan-detail">
+                    <span>Larger storage</span>
+                    <span>Extra 1TB of cloud save</span>
+                  </div>
+                  <span class="price">+$20/yr</span>
+                </label>
+              </div>
+              <div class="input-wrapper">
+                <input type="checkbox" name="mods" id="customizableProfile" />
+                <label for="customizableProfile">
+                  <div class="plan-detail">
+                    <span>Customizable profile</span>
+                    <span>Custom theme on your profile</span>
+                  </div>
+                  <span class="price">+$20/yr</span>
+                </label>
+              </div>
+            </div>
+            <div class="summary hidden">
+              <div class="summary-box">
+                <div class="selected-plan">
+                  <span>Arcade (Yearly)</span>
+                  <button id="change-plan">Change</button>
+                  <span>$90/yr</span>
+                </div>
+                <div class="addons">
+                  <div class="addon">
+                    <span>Online service</span>
+                    <span>+$10/yr</span>
+                  </div>
+                  <div class="addon">
+                    <span>Larger storage</span>
+                    <span>+$20/yr</span>
+                  </div>
+                </div>
+              </div>
+              <div class="total">
+                <span>Total (per year)</span>
+                <span>$120/yr</span>
               </div>
             </div>
           </form>
