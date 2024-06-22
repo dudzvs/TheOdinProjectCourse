@@ -11,14 +11,37 @@
       <header>
         <nav>
           <div class="nav-btns-pages">
-            <button class="nav-btn active" data-nav-button>1</button>
-            <button class="nav-btn" data-nav-button>2</button>
-            <button class="nav-btn" data-nav-button>3</button>
-            <button class="nav-btn" data-nav-button>4</button>
+            <div class="btn-wrapper">
+              <button class="nav-btn" data-nav-button>1</button>
+              <p>
+                Step 1 <br />
+                <span>YOUR INFO</span>
+              </p>
+            </div>
+            <div class="btn-wrapper">
+              <button class="nav-btn" data-nav-button>2</button>
+              <p>
+                Step 2 <br />
+                <span>SELECT PLAN</span>
+              </p>
+            </div>
+            <div class="btn-wrapper">
+              <button class="nav-btn" data-nav-button>3</button>
+              <p>
+                Step 3 <br />
+                <span>ADD-ONS</span>
+              </p>
+            </div>
+            <div class="btn-wrapper">
+              <button class="nav-btn" data-nav-button>4</button>
+              <p>
+                Step 4 <br />
+                <span>SUMMARY</span>
+              </p>
+            </div>
           </div>
         </nav>
       </header>
-
       <main>
         <div class="formBox">
           <h2 id="titleForm">Finishing up</h2>
@@ -27,7 +50,7 @@
           </p>
 
           <form action="#">
-            <div class="personal-info">
+            <div class="personal-info hidden">
               <div class="input-wrapper">
                 <label for="userName">Name</label>
                 <input
@@ -85,15 +108,15 @@
                     <span>$16/mo</span>
                   </div>
                 </label>
-                <div class="switchBox">
-                  <label for="yearly">Monthly</label>
-                  <div class="switch">
-                    <input type="radio" name="billing" id="monthly" checked />
-                    <input type="radio" name="billing" id="yearly" />
-                    <div class="slider"></div>
-                  </div>
-                  <label for="monthly">Yearly</label>
+              </div>
+              <div class="switchBox">
+                <label for="yearly">Monthly</label>
+                <div class="switch">
+                  <input type="radio" name="billing" id="monthly" checked />
+                  <input type="radio" name="billing" id="yearly" />
+                  <div class="slider"></div>
                 </div>
+                <label for="monthly">Yearly</label>
               </div>
             </div>
             <div class="modsPlans hidden">
@@ -128,7 +151,7 @@
                 </label>
               </div>
             </div>
-            <div class="summary hidden">
+            <div class="summary">
               <div class="summary-box">
                 <div class="selected-plan">
                   <span>Arcade (Yearly)</span>
@@ -146,10 +169,10 @@
                   </div>
                 </div>
               </div>
-              <div class="total">
-                <span>Total (per year)</span>
-                <span>$120/yr</span>
-              </div>
+            </div>
+            <div class="total">
+              <span>Total (per year)</span>
+              <span>$120/yr</span>
             </div>
           </form>
         </div>
