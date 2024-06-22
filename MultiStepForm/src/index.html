@@ -50,7 +50,7 @@
           </p>
 
           <form action="#">
-            <div class="personal-info hidden">
+            <div class="personal-info">
               <div class="input-wrapper">
                 <label for="userName">Name</label>
                 <input
@@ -151,7 +151,7 @@
                 </label>
               </div>
             </div>
-            <div class="summary">
+            <div class="summary hidden">
               <div class="summary-box">
                 <div class="selected-plan">
                   <span>Arcade (Yearly)</span>
@@ -170,9 +170,14 @@
                 </div>
               </div>
             </div>
-            <div class="total">
+            <div class="total hidden">
               <span>Total (per year)</span>
               <span>$120/yr</span>
+            </div>
+
+            <div class="buttonsBackNext">
+              <button id="backBtn">Go Back</button>
+              <button id="nextBtn">Next Step</button>
             </div>
           </form>
         </div>
