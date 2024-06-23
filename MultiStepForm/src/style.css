@@ -140,7 +140,7 @@ h6 {
   display: flex;
   flex-direction: column;
   font-size: 1.4rem;
-  gap: 1em;
+  gap: 2em;
 }
 
 .personal-info input {
@@ -386,6 +386,7 @@ h6 {
   font-size: 1.4rem;
   color: #9b9ea8;
   border: none;
+  opacity: 0;
   cursor: pointer;
 }
 
@@ -465,7 +466,7 @@ a {
   }
 
   .formBox {
-    width: 76%;
+    width: 75%;
     box-shadow: none;
     height: 80%;
   }
@@ -479,11 +480,13 @@ a {
     max-width: 500px;
   }
   .personal-info {
+    max-width: 75%;
     gap: 3em;
   }
 
   .personal-info input {
     height: 48px;
+    max-width: auto;
   }
 
   nav {
@@ -546,10 +549,22 @@ a {
   }
 
   .buttonsBackNext {
-    width: 50%;
+    width: 38%;
     left: 42%;
     bottom: 24px;
   }
+}
+
+.error-msg {
+  position: absolute;
+  color: red;
+  font-weight: bold;
+  align-self: flex-end;
+}
+
+input.invalid {
+  border-color: red;
+  outline: red;
 }
 
 .hidden {

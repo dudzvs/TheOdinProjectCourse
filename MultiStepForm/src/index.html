@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>MultiStepForm</title>
   </head>
   <body>
@@ -50,16 +49,18 @@
           </p>
 
           <form action="#">
-            <div class="personal-info">
+            <div class="personal-info" data-step="1">
               <div class="input-wrapper">
                 <label for="userName">Name</label>
                 <input
                   type="text"
                   name="userName"
                   id="userName"
-                  required
                   placeholder="e.g. Stephen King"
+                  required
+                  autocomplete="off"
                 />
+                <span id="errorMsg" class="error-msg"></span>
               </div>
               <div class="input-wrapper">
                 <label for="userEmail">Email</label>
@@ -69,7 +70,9 @@
                   id="userEmail"
                   required
                   placeholder="e.g. stephenking@lorem.com"
+                  autocomplete="off"
                 />
+                <span id="errorMsg" class="error-msg"></span>
               </div>
               <div class="input-wrapper">
                 <label for="phone">Phone</label>
@@ -79,10 +82,12 @@
                   id="phone"
                   required
                   placeholder="e.g. +1 234 567 890"
+                  autocomplete="off"
                 />
+                <span id="errorMsg" class="error-msg"></span>
               </div>
             </div>
-            <div class="plans hidden">
+            <div class="plans hidden" data-step="2">
               <div class="input-wrapper">
                 <input type="radio" name="plansInput" id="arcade" checked />
                 <label for="arcade">
@@ -119,7 +124,7 @@
                 <label for="monthly">Yearly</label>
               </div>
             </div>
-            <div class="modsPlans hidden">
+            <div class="modsPlans hidden" data-step="3">
               <div class="input-wrapper">
                 <input type="checkbox" name="mods" id="onlineServices" />
                 <label for="onlineServices">
@@ -151,7 +156,7 @@
                 </label>
               </div>
             </div>
-            <div class="summary hidden">
+            <div class="summary hidden" data-step="4">
               <div class="summary-box">
                 <div class="selected-plan">
                   <span>Arcade (Yearly)</span>
@@ -169,12 +174,11 @@
                   </div>
                 </div>
               </div>
+              <div class="total">
+                <span>Total (per year)</span>
+                <span>$120/yr</span>
+              </div>
             </div>
-            <div class="total hidden">
-              <span>Total (per year)</span>
-              <span>$120/yr</span>
-            </div>
-
             <div class="buttonsBackNext">
               <button id="backBtn">Go Back</button>
               <button id="nextBtn">Next Step</button>
