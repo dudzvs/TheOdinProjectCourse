@@ -4,31 +4,37 @@ export function validateValues(e) {
   const emailInput = document.getElementById('userEmail');
   const phoneInput = document.getElementById('phone');
 
-  validateField(
+  const isNameValid = validateField(
     nameInput,
     'This field is required',
     (value) => value.trim() !== ''
   );
-  validateField(
+  const isEmailPresent = validateField(
     emailInput,
     'This field is required',
     (value) => value.trim() !== ''
   );
-  validateField(emailInput, 'Type a valid Email', (value) =>
-    validEmail(value.trim())
+  const isEmailValid = validateField(
+    emailInput,
+    'Type a valid Email',
+    (value) => validEmail(value.trim())
   );
-  validateField(
+  const isPhoneValid = validateField(
     phoneInput,
     'This field is required',
     (value) => value.trim() !== ''
   );
+
+  return isNameValid && isEmailPresent && isEmailValid && isPhoneValid;
 }
 
 function validateField(input, errorMessage, validationFn) {
   if (!validationFn(input.value)) {
     setError(input, errorMessage);
+    return false;
   } else {
     setSuccess(input);
+    return true;
   }
 }
 
