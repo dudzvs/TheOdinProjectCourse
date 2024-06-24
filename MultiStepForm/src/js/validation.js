@@ -1,5 +1,4 @@
-export function validateValues(e) {
-  e.preventDefault();
+export function validateValues() {
   const nameInput = document.getElementById('userName');
   const emailInput = document.getElementById('userEmail');
   const phoneInput = document.getElementById('phone');
