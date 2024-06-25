@@ -1,3 +1,4 @@
+import { showStep, updateStepContent, updateSummary } from './DOM';
 import { validateValues } from './validation';
 
 export function initializeEvents() {
@@ -10,30 +11,23 @@ export function initializeEvents() {
   let currentStep = 1;
   let currentCircle = 0;
 
-  function showStep(step) {
-    steps.forEach((s) => {
-      s.classList.add('hidden');
-      if (parseInt(s.dataset.step) === step) {
-        s.classList.remove('hidden');
-      }
-    });
-
-    backBtn.style.opacity = step === 1 ? '0' : '1';
-  }
-
+  updateStepContent(currentStep);
   function updateStep(direction) {
     if (direction === 'next') {
       if (currentStep < steps.length && validateValues()) {
         currentStep++;
         currentCircle++;
+        showStep(steps, currentStep, backBtn, nextBtn);
       }
     } else if (direction === 'back') {
       if (currentStep <= steps.length && currentStep !== 1) {
         currentStep--;
         currentCircle--;
+        showStep(steps, currentStep, backBtn, nextBtn);
       }
     }
-    showStep(currentStep);
+    updateStepContent(currentStep);
+    updateSummary();
     navBtns.forEach((btn, index) => {
       btn.classList.toggle('active', index === currentCircle);
     });
@@ -50,6 +44,9 @@ export function initializeEvents() {
   });
 
   for (let field of requiredFields) {
-    field.addEventListener('invalid', validateValues);
+    field.addEventListener('invalid', (e) => {
+      e.preventDefault();
+      validateValues();
+    });
   }
 }
