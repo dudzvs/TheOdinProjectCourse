@@ -555,6 +555,28 @@ a {
   }
 }
 
+.end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.end p {
+  width: 300px;
+  text-align: center;
+  line-height: 32px;
+}
+
+.end-ico {
+  background-image: url('./assets/images/icon-thank-you.svg');
+  height: 60px;
+  width: 60px;
+  background-position: center;
+  border-radius: 50%;
+  margin-top: 2em;
+  margin-bottom: 1.5em;
+}
+
 .error-msg {
   position: absolute;
   color: red;

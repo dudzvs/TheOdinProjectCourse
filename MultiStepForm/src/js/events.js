@@ -33,14 +33,27 @@ export function initializeEvents() {
     });
   }
 
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+  });
+
   nextBtn.addEventListener('click', (e) => {
     e.preventDefault();
     updateStep('next');
+    nextBtn.classList.remove('hidden');
+
+    if (currentStep === steps.length) {
+      nextBtn.classList.add('hidden');
+    }
   });
 
   backBtn.addEventListener('click', (e) => {
     e.preventDefault();
     updateStep('back');
+
+    if (currentStep < steps.length) {
+      nextBtn.classList.remove('hidden');
+    }
   });
 
   for (let field of requiredFields) {

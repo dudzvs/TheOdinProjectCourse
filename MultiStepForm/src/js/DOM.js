@@ -22,6 +22,10 @@ export function updateStepContent(step) {
       stepDescription.textContent =
         'Review your selections before completing the form.';
       break;
+    case 5:
+      stepTitle.innerHTML = '';
+      stepDescription.innerHTML = '';
+      break;
     default:
       break;
   }
