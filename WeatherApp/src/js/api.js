@@ -6,6 +6,7 @@ export async function loadApi(city) {
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
     const data = await response.json();
+    console.log(data);
     return processWeatherData(data);
   } catch (error) {
     console.log('Error fetching the weather data:', error);
@@ -18,7 +19,9 @@ function processWeatherData(data) {
     temperature: {
       celsius: data.current.temp_c,
       fahrenheit: data.current.temp_f,
+      fellsLike: data.current.feelslike_c,
     },
+    humidity: data.current.humidity,
     condition: {
       text: data.current.condition.text,
       icon: data.current.condition.icon,

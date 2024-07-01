@@ -1,4 +1,4 @@
-console.log('olass');
+import '../style.css';
 import { loadApi } from './api';
 
 loadApi('London');

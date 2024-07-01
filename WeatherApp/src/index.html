@@ -3,7 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>WeatherApp | TheOdinProject</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <form action="#">
+        <h1>Weather App</h1>
+        <div class="input-wrapper">
+          <input type="text" name="weather" id="weatherInput" />
+        </div>
+        <button type="submit">Search</button>
+      </form>
+      <div class="weather-ico" id="weatherIco"></div>
+      <div class="search-result">
+        <h3 id="cityName"></h3>
+        <p id="conditionText"></p>
+        <p id="temperature"></p>
+        <p id="feelsLike"></p>
+        <p id="humidity"></p>
+        <p id="wind"></p>
+      </div>
+    </div>
+  </body>
 </html>
