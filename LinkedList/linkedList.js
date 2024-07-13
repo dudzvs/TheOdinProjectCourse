@@ -19,4 +19,21 @@ export class LinkedList {
     }
     this.length++;
   }
+
+  insertAtEnd(data) {
+    const newNode = new Node(data);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+
+    this.length++;
+  }
+
+  getLength() {
+    return console.log(`Number of elements: ${this.length}`);
+  }
 }
