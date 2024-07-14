@@ -64,6 +64,36 @@ export class LinkedList {
     this.length++;
   }
 
+  removeAt(index) {
+    if (index < 0 || index > this.length) {
+      console.log('Invalid Index');
+      return;
+    }
+
+    if (index === 0) {
+      this.removeFromBegninning();
+    }
+
+    if (index === this.length - 1) {
+      return this.removeFromEnd();
+    }
+
+    let currentNode = this.head;
+    let currentIndex = 0;
+    let previous = null;
+
+    while (currentIndex < index) {
+      previous = currentNode;
+      currentNode = currentNode.next;
+      currentIndex++;
+    }
+
+    previous.next = currentNode.next;
+    this.length--;
+
+    return currentNode;
+  }
+
   removeFromBegninning() {
     if (!this.head) return null;
 
@@ -99,6 +129,18 @@ export class LinkedList {
 
     this.length--;
     return removedNode;
+  }
+
+  printList() {
+    let currentNode = this.head;
+    let list = '';
+
+    while (currentNode) {
+      list += `${currentNode.data} -> `;
+      currentNode = currentNode.next;
+    }
+    list += 'null';
+    console.log(list);
   }
 
   getLength() {
