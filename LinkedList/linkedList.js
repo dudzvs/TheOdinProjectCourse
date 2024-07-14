@@ -33,6 +33,37 @@ export class LinkedList {
     this.length++;
   }
 
+  insertAt(data, index) {
+    if (index < 0 && index > this.length) {
+      console.log('error, insert a valid index');
+      return;
+    }
+    if (index === 0) {
+      this.insertAtBegninning(data);
+      return;
+    }
+    if (index === this.length) {
+      this.insertAtEnd(data);
+      return;
+    }
+    const newNode = new Node(data);
+    let current = this.head;
+    let currentIndex = 0;
+
+    while (currentIndex < index - 1) {
+      current = current.next;
+      currentIndex++;
+    }
+
+    newNode.next = current.next;
+    current.next = newNode;
+
+    if (index === this.length - 1) {
+      this.tail = newNode;
+    }
+    this.length++;
+  }
+
   removeFromBegninning() {
     if (!this.head) return null;
 
