@@ -87,4 +87,9 @@ export class HashMap {
       }
     }
   }
+
+  clear() {
+    this.table = new Array(this.capacity).fill(null).map(() => []);
+    this.size = 0;
+  }
 }
