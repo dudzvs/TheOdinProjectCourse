@@ -92,4 +92,22 @@ export class HashMap {
     this.table = new Array(this.capacity).fill(null).map(() => []);
     this.size = 0;
   }
+
+  length() {
+    return this.size;
+  }
+
+  keys() {
+    const keys = [];
+
+    for (let i = 0; i < this.table.length; i++) {
+      const buckets = this.table[i];
+
+      for (let j = 0; j < buckets.length; j++) {
+        const [key, value] = buckets[j];
+        keys.push(key);
+      }
+    }
+    return keys;
+  }
 }
