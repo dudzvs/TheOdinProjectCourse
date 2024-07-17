@@ -60,5 +60,15 @@ export class HashMap {
     return null;
   }
 
-  has(key) {}
+  has(key) {
+    const index = this._hash(key);
+    const bucket = this.table[index];
+
+    for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === key) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
