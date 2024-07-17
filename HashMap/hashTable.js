@@ -110,4 +110,32 @@ export class HashMap {
     }
     return keys;
   }
+
+  values() {
+    const values = [];
+
+    for (let i = 0; i < this.table.length; i++) {
+      const bucket = this.table[i];
+
+      for (let j = 0; j < bucket.length; j++) {
+        const [key, value] = bucket[j];
+        values.push(value);
+      }
+    }
+    return values;
+  }
+
+  entries() {
+    const entries = [];
+
+    for (let i = 0; i < this.table.length; i++) {
+      const bucket = this.table[i];
+
+      for (let j = 0; j < bucket.length; j++) {
+        const [key, value] = bucket[j];
+        entries.push([key, value]);
+      }
+    }
+    return entries;
+  }
 }
