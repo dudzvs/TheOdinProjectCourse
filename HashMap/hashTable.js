@@ -1,11 +1,12 @@
 import { hash } from './genHashCode.js';
 
-export class hashMap {
+export class HashMap {
   constructor(genHashKey = hash, initialCapacity = 7) {
     this.genHashKey = genHashKey;
     this.table = new Array(initialCapacity).fill(null).map(() => []);
     this.capacity = initialCapacity;
     this.size = 0;
+    this.loadFactor = 0.75;
   }
 
   _hash(key) {
@@ -26,6 +27,24 @@ export class hashMap {
 
       bucket.push([key, value]);
       this.size++;
+
+      if (this.size / this.table.length > this.loadFactor) {
+        const newCapacity = this.table.length * 2;
+        const newTable = new Array(newCapacity).fill(null).map(() => []);
+
+        for (let i = 0; i < this.table.length; i++) {
+          const currentBuckets = this.table[i];
+
+          for (let j = 0; j < currentBuckets.length; j++) {
+            const [currentKey, currentValue] = currentBuckets[j];
+            const newIndex = this._hash(currentKey) % newCapacity;
+            newTable[newIndex].push([currentKey, currentValue]);
+          }
+        }
+
+        this.table = newTable;
+        this.capacity = newCapacity;
+      }
     }
   }
 
@@ -40,4 +59,6 @@ export class hashMap {
     }
     return null;
   }
+
+  has(key) {}
 }
