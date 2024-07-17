@@ -71,4 +71,20 @@ export class HashMap {
     }
     return false;
   }
+
+  remove(key) {
+    if (this.has(key)) {
+      const index = this._hash(key);
+      const bucket = this.table[index];
+
+      for (let i = 0; i < bucket.length; i++) {
+        if (bucket[i][0] === key) {
+          bucket.splice(i, 1);
+
+          this.size--;
+          return;
+        }
+      }
+    }
+  }
 }
