@@ -10,41 +10,41 @@ export class HashMap {
   }
 
   _hash(key) {
-    return this.genHashKey(key) % this.table.length;
+    return this.genHashKey(key) % this.capacity;
+  }
+
+  _resizeTable() {
+    const newCapacity = this.table.length * 2;
+    const newTable = new Array(newCapacity).fill(null).map(() => []);
+
+    for (const bucket of this.table) {
+      for (const [key, value] of bucket) {
+        const newIndex = this._hash(key) % newCapacity;
+        newTable[newIndex].push([key, value]);
+      }
+    }
+    this.table = newTable;
+    this.capacity = newCapacity;
   }
 
   set(key, value) {
-    if (key != null && value != null) {
-      const index = this._hash(key);
-      const bucket = this.table[index];
+    if (key == null || value == null) return;
 
-      for (let i = 0; i < bucket.length; i++) {
-        if (bucket[i][0] === key) {
-          bucket[i][1] = value;
-          return;
-        }
+    const index = this._hash(key);
+    const bucket = this.table[index];
+
+    for (const pair of bucket) {
+      if (pair[0] === key) {
+        pair[1] = value;
+        return;
       }
+    }
 
-      bucket.push([key, value]);
-      this.size++;
+    bucket.push([key, value]);
+    this.size++;
 
-      if (this.size / this.table.length > this.loadFactor) {
-        const newCapacity = this.table.length * 2;
-        const newTable = new Array(newCapacity).fill(null).map(() => []);
-
-        for (let i = 0; i < this.table.length; i++) {
-          const currentBuckets = this.table[i];
-
-          for (let j = 0; j < currentBuckets.length; j++) {
-            const [currentKey, currentValue] = currentBuckets[j];
-            const newIndex = this._hash(currentKey) % newCapacity;
-            newTable[newIndex].push([currentKey, currentValue]);
-          }
-        }
-
-        this.table = newTable;
-        this.capacity = newCapacity;
-      }
+    if (this.size / this.capacity > this.loadFactor) {
+      this._resizeTable();
     }
   }
 
@@ -52,9 +52,9 @@ export class HashMap {
     const index = this._hash(key);
     const bucket = this.table[index];
 
-    for (let i = 0; i < bucket.length; i++) {
-      if (bucket[i][0] === key) {
-        return bucket[i][1];
+    for (const pair of bucket) {
+      if (pair[0] === key) {
+        return pair[1];
       }
     }
     return null;
@@ -64,8 +64,8 @@ export class HashMap {
     const index = this._hash(key);
     const bucket = this.table[index];
 
-    for (let i = 0; i < bucket.length; i++) {
-      if (bucket[i][0] === key) {
+    for (const pair of bucket) {
+      if (pair[0] === key) {
         return true;
       }
     }
@@ -99,12 +99,8 @@ export class HashMap {
 
   keys() {
     const keys = [];
-
-    for (let i = 0; i < this.table.length; i++) {
-      const buckets = this.table[i];
-
-      for (let j = 0; j < buckets.length; j++) {
-        const [key, value] = buckets[j];
+    for (const bucket of this.table) {
+      for (const [key] of bucket) {
         keys.push(key);
       }
     }
@@ -114,11 +110,8 @@ export class HashMap {
   values() {
     const values = [];
 
-    for (let i = 0; i < this.table.length; i++) {
-      const bucket = this.table[i];
-
-      for (let j = 0; j < bucket.length; j++) {
-        const [key, value] = bucket[j];
+    for (const bucket of this.table) {
+      for (const [, value] of bucket) {
         values.push(value);
       }
     }
@@ -127,13 +120,9 @@ export class HashMap {
 
   entries() {
     const entries = [];
-
-    for (let i = 0; i < this.table.length; i++) {
-      const bucket = this.table[i];
-
-      for (let j = 0; j < bucket.length; j++) {
-        const [key, value] = bucket[j];
-        entries.push([key, value]);
+    for (const bucket of this.table) {
+      for (const pair of bucket) {
+        entries.push(pair);
       }
     }
     return entries;
