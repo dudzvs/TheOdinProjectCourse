@@ -22,4 +22,22 @@ export class Tree {
 
     return root;
   }
+
+  insert(value) {
+    this.root = this._insert(this.root, value);
+  }
+
+  _insert(node, value) {
+    if (node === null) {
+      return new Node(value);
+    }
+
+    if (value < node.data) {
+      node.left = this._insert(node.left, value);
+    } else if (value > node.data) {
+      node.right = this._insert(node.right, value);
+    }
+
+    return node;
+  }
 }
