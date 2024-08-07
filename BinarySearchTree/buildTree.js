@@ -44,10 +44,14 @@ export class Tree {
     return node;
   }
 
+  // Método público para deletar um valor específico da árvore.
+  // Atualiza a raiz da árvore após a exclusão do nó.
   delete(value) {
     this.root = this._deleteNode(this.root, value);
   }
 
+  // Método auxiliar para deletar um valor específico da árvore utilizando recursão.
+  // Retorna o nó atualizado após a exclusão.
   _deleteNode(node, value) {
     if (node === null) {
       return null;
@@ -72,6 +76,28 @@ export class Tree {
       node.right = this._deleteNode(node.right, minNode.data);
     }
     return node;
+  }
+
+  // Método público para encontrar um valor específico na árvore.
+  // Inicia a busca chamando o método auxiliar com a raiz da árvore.
+  find(value) {
+    return this._searchNode(this.root, value);
+  }
+
+  // Método auxiliar para encontrar um valor específico utilizando recursão.
+  // Percorre a árvore binária de busca comparando o valor com os nós.
+  _searchNode(node, value) {
+    if (!node) {
+      return false;
+    }
+
+    if (value > node.data) {
+      return this._searchNode(node.right, value);
+    } else if (value < node.data) {
+      return this._searchNode(node.left, value);
+    } else {
+      return true;
+    }
   }
 
   _findMin(node) {
