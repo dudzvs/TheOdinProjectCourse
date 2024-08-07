@@ -11,6 +11,7 @@ export class Tree {
     return this._buildBalanceTree(sortedArr);
   }
 
+  // Método recursivo para construir a arvore.
   _buildBalanceTree(array) {
     if (array.length === 0) return null;
 
@@ -23,10 +24,12 @@ export class Tree {
     return root;
   }
 
+  // Método público para inserir um valor na árvore
   insert(value) {
     this.root = this._insert(this.root, value);
   }
 
+  // Método recursivo interno para inserir um valor em um nó específico
   _insert(node, value) {
     if (node === null) {
       return new Node(value);
@@ -36,6 +39,44 @@ export class Tree {
       node.left = this._insert(node.left, value);
     } else if (value > node.data) {
       node.right = this._insert(node.right, value);
+    }
+
+    return node;
+  }
+
+  delete(value) {
+    this.root = this._deleteNode(this.root, value);
+  }
+
+  _deleteNode(node, value) {
+    if (node === null) {
+      return null;
+    }
+
+    if (value > node.data) {
+      node.right = this._deleteNode(node.right, value);
+      return node;
+    } else if (value < node.left) {
+      node.left = this._deleteNode(node.left, value);
+      return node;
+    } else {
+      if (!node.left) {
+        return node.right;
+      }
+      if (!node.right) {
+        return node.left;
+      }
+
+      const minNode = this._findMin(node.right);
+      node.data = minNode.data;
+      node.right = this._deleteNode(node.right, minNode.data);
+    }
+    return node;
+  }
+
+  _findMin(node) {
+    while (node.left !== null) {
+      node = node.left;
     }
 
     return node;
