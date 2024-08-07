@@ -56,7 +56,7 @@ export class Tree {
     if (value > node.data) {
       node.right = this._deleteNode(node.right, value);
       return node;
-    } else if (value < node.left) {
+    } else if (value < node.data) {
       node.left = this._deleteNode(node.left, value);
       return node;
     } else {
@@ -80,5 +80,22 @@ export class Tree {
     }
 
     return node;
+  }
+
+  prettyPrint(node = this.root, prefix = "", isLeft = true) {
+    if (node === null) {
+      return;
+    }
+    if (node.right !== null) {
+      this.prettyPrint(
+        node.right,
+        `${prefix}${isLeft ? "│   " : "    "}`,
+        false
+      );
+    }
+    console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
+    if (node.left !== null) {
+      this.prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
+    }
   }
 }
