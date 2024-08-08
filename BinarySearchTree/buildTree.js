@@ -84,6 +84,25 @@ export class Tree {
     return this._searchNode(this.root, value);
   }
 
+  levelOrder(callback) {
+    if (this.root === null) return null;
+    if (!callback) throw new Error("Need a callback");
+    const queue = [this.root];
+
+    while (queue.length > 0) {
+      const node = queue.shift();
+
+      callback(node);
+
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
+    }
+  }
+
   // Método auxiliar para encontrar um valor específico utilizando recursão.
   // Percorre a árvore binária de busca comparando o valor com os nós.
   _searchNode(node, value) {
