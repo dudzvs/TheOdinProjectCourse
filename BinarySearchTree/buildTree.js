@@ -78,6 +78,10 @@ export class Tree {
     return node;
   }
 
+  height(node) {
+    return this._getNodeHeight(node);
+  }
+
   // Método público para encontrar um valor específico na árvore.
   // Inicia a busca chamando o método auxiliar com a raiz da árvore.
   find(value) {
@@ -158,6 +162,15 @@ export class Tree {
     } else {
       return true;
     }
+  }
+
+  _getNodeHeight(node) {
+    if (node === null) return -1;
+
+    let leftH = this._getNodeHeight(node.left);
+    let rightH = this._getNodeHeight(node.right);
+
+    return Math.max(leftH, rightH) + 1;
   }
 
   _findMin(node) {
