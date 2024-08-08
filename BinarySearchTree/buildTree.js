@@ -103,6 +103,47 @@ export class Tree {
     }
   }
 
+  inOrder(callback) {
+    this._inOrderTraverse(this.root, callback);
+  }
+
+  postOrder(callback) {
+    this._postOrderTraverse(this.root, callback);
+  }
+
+  preOrder(callback) {
+    this._preOrderTraverse(this.root, callback);
+  }
+
+  _preOrderTraverse(node, callback) {
+    if (!callback) throw new Error("Need a callback.");
+    if (node != null) {
+      callback(node.data);
+      this._preOrderTraverse(node.left, callback);
+      this._preOrderTraverse(node.right, callback);
+    }
+  }
+
+  _inOrderTraverse(node, callback) {
+    if (!callback) throw new Error("Need a callback.");
+
+    if (node != null) {
+      this._inOrderTraverse(node.left, callback);
+      callback(node.data);
+      this._inOrderTraverse(node.right, callback);
+    }
+  }
+
+  _postOrderTraverse(node, callback) {
+    if (!callback) throw new Error("Need a callback.");
+
+    if (node != null) {
+      this._postOrderTraverse(node.left, callback);
+      this._postOrderTraverse(node.right, callback);
+      callback(node.data);
+    }
+  }
+
   // Método auxiliar para encontrar um valor específico utilizando recursão.
   // Percorre a árvore binária de busca comparando o valor com os nós.
   _searchNode(node, value) {
